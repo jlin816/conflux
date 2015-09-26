@@ -1,0 +1,15 @@
+pt {
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	color: #FF3333;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+cluster {
+	border-radius: 50%;
+	color: #FF3333;
+	position: absolute;
+}

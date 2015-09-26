@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="d3.min.js"></script>
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <link rel = "stylesheet" href = "main.css">
+</head>
+<body>
+    <img src="klaus.jpg" id="map" max-width="100%" height="auto"/>
+    <script>
+    //get image dimensions
+    //$(document).ready(function(){
+        //var img = new Image();
+        //$("body").css("background-image").replace(/url\(|\)$/ig, '');
+    
+    //get list of points from server
+    //get list of clusters from server
+    var pts = [ [50,50],
+                [100,100] ];
+    var clusters_r = [[2],[1]];
+    //render points/clusters
+    for(var i=0;i<pts.length;i++) {
+        var d = document.createElement("div");
+        document.body.appendChild(d);
+        d.class = "pt";
+        d.left = pts[i][0];
+        d.top = pts[i][1];
+    }
+
+
+    //button to switch between cluster and point view, or switch on zoom 
+
+
+    
+    </script>
+</body>
+</html>

@@ -8,12 +8,6 @@
 <body>
     <img src="klaus.jpg" id="map" max-width="100%" height="auto"/>
     <script>
-    //get image dimensions
-    //$(document).ready(function(){
-        //var img = new Image();
-        //$("body").css("background-image").replace(/url\(|\)$/ig, '');
-    
-    //get list of points from server
     //get list of clusters from server
     var pts = [ [50,50],
                 [100,100] ];
@@ -21,10 +15,11 @@
     //render points/clusters
     for(var i=0;i<pts.length;i++) {
         var d = document.createElement("div");
+        d.className = "pt";
+        d.id = "d";
         document.body.appendChild(d);
-        d.class = "pt";
-        d.left = pts[i][0];
-        d.top = pts[i][1];
+        document.getElementById("d").style.left=pts[i][0]+"px";
+        document.getElementById("d").style.top=pts[i][1]+"px";
     }
 
 

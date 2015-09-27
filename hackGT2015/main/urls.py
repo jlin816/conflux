@@ -4,11 +4,9 @@ from views import *
 
 urlpatterns = [
     # Examples:
-    url(r'^setPlaid/', set_plaid_acct.as_view(), name='setacct'),
-    url(r'^forceUpdatePlaid/', force_update_plaid_info.as_view(), name='forceupdate'),
-    url(r'^user/', get_user_data.as_view(), name='userdata'),
-    url(r'^business/transactions/', get_business_transactions.as_view(), name='transactions'),
-    url(r'^transactions/rate/', rate_transaction.as_view(), name='rate_transactions'),
+    url(r'^raspiCoord/', setRaspiPos.as_view(), name='setpos'),
+    url(r'^upload_data/', upload_data.as_view(), name='data'),
+    url(r'^positions/', getpositions.as_view(), name='pos'),
 
     # url(r'^$', 'hyppe.views.home', name='home'),
     # url(r'^/', include('main.urls')),

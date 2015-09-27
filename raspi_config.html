@@ -36,8 +36,34 @@
                 m = document.getElementById("marker"+raspi_locs.length);
                 m.style.left=raspi_locs[raspi_locs.length-1][0]+offset.left-m.offsetWidth/2+"px";
                 m.style.top=raspi_locs[raspi_locs.length-1][1]+offset.top-m.offsetHeight/2+"px";
+                
+                //Post location to server
+                var jsonobj = {
+                        "raspi_id": raspi_locs.length,
+                        "x": raspi_locs[raspi_locs.length-1][0],
+                        "y": raspi_locs[raspi_locs.length-1][1]
+                };
+
+                var form = document.createElement("form");
+                form.setAttribute("method","post");
+                form.setAttribute("action","/raspiCoord/");
+
+                for(var key in jsonobj) {
+                    if(jsonobj.hasOwnProperty(key)) {
+                        var hiddenField = document.createElement("input");
+                        hiddenField.setAttribute("type","hidden");
+                        hiddenField.setAttribute("name",key);
+                        hiddenField.setAttribute("value",jsonobj[key]);
+
+                        form.appendChild(hiddenField);
+                    }
+                }
+
+                document.body.appendChild(form);
+                form.submit();
             });
         });
+
     </script>
 
     <p id = "displayArea"></p>

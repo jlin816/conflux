@@ -3,6 +3,7 @@ div.pt {
 	width: 100px;
 	height: 100px;
 	background-color: #FF3333;
+	opacity: .7;
 	position: absolute;
 	top: 10px;
 	left: 10px;

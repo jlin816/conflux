@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <link rel = "stylesheet" href = "raspi_config.css">
+    <script> 
+        function getPos(e){
+            x=e.pageX;
+            y=e.pageY;
+            cursor="(" + x + "," + y + ")";
+            document.getElementById("displayArea").innerHTML=cursor;
+        }
+    </script>
+</head>
+<body onmousemove="getPos(event)">
+    
+    <div id="wrapper" style="width:100%; text-align:center">
+    <img src="klaus.jpg" 
+            id="map" 
+            max-width="100%" 
+            height="auto"/>
+    </div>
+
+    <script>
+    var raspi_locs = [];
+        $(document).ready(function(){
+            $("img").click(function(e) {
+                var offset = $(this).offset();
+                raspi_locs.push([(e.pageX - offset.left),(e.pageY - offset.top)]); //RASPILOCS STORES COORDS RELATIVE TO IMAGE. Do not resize page after this.
+                
+                //Draw marker on map
+                var d = document.createElement("div");
+                d.className = "rp";
+                d.id = "marker"+raspi_locs.length;
+                document.body.appendChild(d);
+                m = document.getElementById("marker"+raspi_locs.length);
+                m.style.left=raspi_locs[raspi_locs.length-1][0]+offset.left-m.offsetWidth/2+"px";
+                m.style.top=raspi_locs[raspi_locs.length-1][1]+offset.top-m.offsetHeight/2+"px";
+            });
+        });
+    </script>
+
+    <p id = "displayArea"></p>
+
+</body>
+</html>
